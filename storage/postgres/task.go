@@ -1,8 +1,8 @@
 package postgres
 
 import (
-	"time"
 	"database/sql"
+	"time"
 
 	"github.com/jmoiron/sqlx"
 

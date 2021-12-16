@@ -12,12 +12,10 @@ import (
 	"github.com/FarrukhibnAkbar/ToDo/storage"
 )
 
-
 type TaskService struct {
 	storage storage.IStorage
 	logger  l.Logger
 }
-
 
 func NewTaskService(storage storage.IStorage, log l.Logger) *TaskService {
 	return &TaskService{

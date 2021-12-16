@@ -10,11 +10,11 @@ import (
 type Field = zapcore.Field
 
 var (
-	Int = zap.Int
+	Int    = zap.Int
 	String = zap.String
-	Error = zap.Error
-	Bool = zap.Bool
-	Any = zap.Any
+	Error  = zap.Error
+	Bool   = zap.Bool
+	Any    = zap.Any
 )
 
 type Logger interface {
@@ -46,7 +46,6 @@ func New(level, namespace string) *LoggerImpl {
 
 	return &logger
 }
-
 
 func (l *LoggerImpl) Debug(msg string, fields ...Field) {
 	l.zap.Debug(msg, fields...)
@@ -90,7 +89,6 @@ func WithFields(l Logger, fields ...Field) Logger {
 		return l
 	}
 }
-
 
 func Cleanup(l Logger) error {
 	switch v := l.(type) {

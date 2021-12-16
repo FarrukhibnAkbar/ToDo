@@ -12,17 +12,17 @@ type IStorage interface {
 }
 
 type storagePg struct {
-	db 			*sqlx.DB
-	taskRepo	repo.TaskStorageI
+	db       *sqlx.DB
+	taskRepo repo.TaskStorageI
 }
 
 func NewStoragePg(db *sqlx.DB) *storagePg {
-	return &storagePg {
-		db: 		db,
-		taskRepo:	postgres.NewTaskRepo(db),
+	return &storagePg{
+		db:       db,
+		taskRepo: postgres.NewTaskRepo(db),
 	}
 }
 
-func(s storagePg) Task() repo.TaskStorageI {
+func (s storagePg) Task() repo.TaskStorageI {
 	return s.taskRepo
 }

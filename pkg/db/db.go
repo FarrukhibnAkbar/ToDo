@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jmoiron/sqlx"
-	_"github.com/lib/pq"
+	_ "github.com/lib/pq"
 
 	"github.com/FarrukhibnAkbar/ToDo/config"
 )
@@ -25,4 +25,3 @@ func ConnectToDB(cfg config.Config) (*sqlx.DB, error) {
 
 	return connDb, nil
 }
-

@@ -7,20 +7,20 @@ import (
 )
 
 type Config struct {
-	Environment			string
-	PostgresHost		string
-	PostgresPort		int
-	PostgresDatabase	string
-	PostgresUser		string
-	PostgresPassword	string
-	LogLevel			string
-	RPCPort				string
-	ReviewServiceHost	string
-	ReviewServicePort	int
+	Environment       string
+	PostgresHost      string
+	PostgresPort      int
+	PostgresDatabase  string
+	PostgresUser      string
+	PostgresPassword  string
+	LogLevel          string
+	RPCPort           string
+	ReviewServiceHost string
+	ReviewServicePort int
 }
 
 func Load() Config {
-	c := Config {}
+	c := Config{}
 
 	c.Environment = cast.ToString(getOrReturnDefault("ENVIRONMENT", "develop"))
 
@@ -36,7 +36,6 @@ func Load() Config {
 
 	return c
 }
-
 
 func getOrReturnDefault(key string, defaultValue interface{}) interface{} {
 	_, exists := os.LookupEnv(key)
