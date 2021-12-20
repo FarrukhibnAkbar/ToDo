@@ -16,7 +16,7 @@ type TaskRepositoryTestSuite struct {
 	Repository  repo.TaskStorageI
 }
 
-func (suite *TaskRepositoryTestSuite) setupSuite() {
+func (suite *TaskRepositoryTestSuite) SetupSuite() {
 	pgPool, cleanup := db.ConnectDBForSuite(config.Load())
 
 	suite.Repository = NewTaskRepo(pgPool)
