@@ -40,17 +40,8 @@ func (suite *TaskRepositoryTestSuite) TestTaskCRUD() {
 
 	_ = suite.Repository.Delete(id)
 
-	taskTodo, err := suite.Repository.Create(task)
+	task, err := suite.Repository.Create(task)
 	suite.Nil(err)
-
-	task = pb.Task{
-		Id:       taskTodo.Id,
-		Title:    taskTodo.Title,
-		Assignee: taskTodo.Assignee,
-		Summary:  taskTodo.Summary,
-		Deadline: taskTodo.Deadline,
-		Status:   taskTodo.Status,
-	}
 
 	getTask, err := suite.Repository.Get(task.Id)
 	suite.Nil(err)

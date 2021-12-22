@@ -1,6 +1,6 @@
 package postgres
 
-import(
+import (
 	"log"
 	"os"
 	"testing"

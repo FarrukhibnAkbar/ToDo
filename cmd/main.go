@@ -4,6 +4,7 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 
 	"github.com/FarrukhibnAkbar/ToDo/config"
 	pb "github.com/FarrukhibnAkbar/ToDo/genproto"
@@ -46,6 +47,7 @@ func main() {
 
 	s := grpc.NewServer()
 	pb.RegisterTaskServiceServer(s, taskService)
+	reflection.Register(s)
 	log.Info("main: server running", logger.String("port", cfg.RPCPort))
 
 	if err := s.Serve(lis); err != nil {

@@ -58,7 +58,7 @@ func (r *taskRepo) Get(id string) (pb.Task, error) {
 	if err != nil {
 		return pb.Task{}, err
 	}
-	task.UpdatedAt = UpdatedAt.Time.String() 
+	task.UpdatedAt = UpdatedAt.Time.String()
 
 	return task, nil
 }
@@ -130,7 +130,7 @@ func (r *taskRepo) Update(task pb.Task) (pb.Task, error) {
 }
 
 func (r *taskRepo) Delete(id string) error {
-	result, err := r.db.Exec(`DELETE FROM tasks WHERE id=$1`, id)
+	result, err := r.db.Exec(`UPDATE tasks SET delete_at = $1 WHERE id = $2`, time.Now(), id)
 	if err != nil {
 		return err
 	}
