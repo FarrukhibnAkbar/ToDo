@@ -106,7 +106,7 @@ func (r *taskRepo) List(page, limit int64) ([]*pb.Task, int64, error) {
 
 func (r *taskRepo) Update(task pb.Task) (pb.Task, error) {
 	result, err := r.db.Exec(`UPDATE tasks SET assignee=$1, title=$2, summary=$3, deadline=$4, status=$5, updated_at=current_timestamp 
-						WHERE id=$6`,
+						WHERE id=$6 and deleted_at`,
 		&task.Assignee,
 		&task.Title,
 		&task.Summary,
@@ -130,7 +130,7 @@ func (r *taskRepo) Update(task pb.Task) (pb.Task, error) {
 }
 
 func (r *taskRepo) Delete(id string) error {
-	result, err := r.db.Exec(`UPDATE tasks SET delete_at = $1 WHERE id = $2`, time.Now(), id)
+	result, err := r.db.Exec(`UPDATE tasks SET deleted_at = $1 WHERE id = $2`, time.Now(), id)
 	if err != nil {
 		return err
 	}
