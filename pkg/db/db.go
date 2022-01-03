@@ -23,10 +23,6 @@ func ConnectToDB(cfg config.Config) (*sqlx.DB, error) {
 		return nil, err
 	}
 
-	// cleanUpFunc := func() {
-	// 	connDB.Close()
-	// }
-
 	return connDB, nil
 }
 

@@ -199,7 +199,7 @@ func TestTaskService_Delete(t *testing.T) {
 		{
 			result: "successful",
 			input: pb.ByIdReq{
-				Id: "528a1bb9-01e6-4bed-b85f-e521a893da54",
+				Id: "23ebb512-05d4-4cdb-bf92-a674b2614e43",
 			},
 			want: pb.EmptyResp{},
 		},
